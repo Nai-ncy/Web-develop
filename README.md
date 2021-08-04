@@ -1,2 +1,2 @@
 # Web-develop
-This is my first reposeitry 
+This is my first repositry 
