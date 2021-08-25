@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    
+<body> 
+  
+    <script src="event.js"></script>
+
+    <div class="content">
+    <hi>Different type of Event in javaScript</hi>
+    <div class="button_su"> 
+        <span class=button_circle>
+        </span>
+        <a href="#" class= "button data" onclick="alert('im  awsoe but no one us me ')">
+           <span class= "button_inner_data">
+               simple inline alert()
+           </span>
+        </a>
+    </div>
+
+    <div class="button_su">
+        <span class="button_circle">
+            <a href="#" class="button data" onclick="callingfunction()">
+               <span class="button_inner_data">
+                   by Calling the function
+                </span>
+            </a>
+        </span>
+    </div>
+
+    <div class="button_su">
+        <span class="button_circle">
+            <a href="#" class= 'button data'>
+                <span class="button_inner_data" id="thirdway">
+                    inline event 
+                </span>
+            </a> 
+        </span>
+    </div>
+    <div class="button_su">
+        <span class="button_circle">
+            <a href="#" class= 'button data'>
+                <span class="button_inner_data" id="forthway">
+                  event listerner `
+                </span>
+            </a> 
+        </span>
+    </div>
+    <!-- mouse -->
+
+    <div id ="mymy"> </div>
+
+    <p  id="mypd" onmousedown="mousedown()" onmouseup="mouseup()">hye im a newly develped programmer working on ky skill to develop becuse i want to live mydreams
+    </p>
+
+    <!-- keyboard -->
+
+    <div class="contain">
+        <div> 
+            <p> hye im a producing a input box</p>
+            <br>
+            <input type="text" class="myinput" onkeydown="keydown()" onkeypress="keypress()" onkeyup="keyup()">
+            <br> 
+            <p id ="value"></p> 
+        </div>
+    </div>
+    <br> 
+    <br>
+    <!-- inputevent -->
+    <div class ="inputevent_container">
+        <div> 
+            <label for=""> YOUR NAME</label>
+            <input type="text" name="" id="people"> 
+            <br> <br>
+            <label>choose an ice cream flavor
+                <select name="icecream" id="ice" onchange="selectElement()"> 
+                    <option value="">select one</option>
+                    <option value="vanilla"> vanilla</option>
+                    <option vlaue="chocolate"> chocolate</option>
+                    <option value="Blackcurrent">Blackcurrent</option> 
+                </select>
+            </label>
+            <br> 
+            <div id="selectitem"> </div>
+        </div>
+        
+    </div>
+
+
+
+    <!-- timing event -->
+
+    <div class="main">
+        <div> 
+            <p> want to see my name</p>
+            <p id="showname"></p>
+            <br>
+            <button id="name_button"> click here</button>
+            <button  id="stop">stop it </button>
+
+        </div> 
+    </div>
+
+     
+
+
+  
+  <script>
+     //   2nd way
+     const callingfunction = () => {
+         alert("most common function to use")
+     }
+     // 3rd way
+     const third = document.getElementById("thirdway");
+     third.onclick = function(){
+        alert("most commn way of using event inline method")
+     }
+
+     // 4th way
+     // const forth = document.querySelector("#forthway")
+     // forth.addEventListener('click', () => {
+     //     alert("thisis the way we use the most and most people like it")
+     // })
+     const forth = document.getElementById('forthway');
+
+     const checkEvent = () =>{
+         alert("im here ohkie");
+         console.log(event);
+         console.log(event.target);
+         console.log(event.type);
+     }
+     forth.addEventListener('click',checkEvent);
+    
+ </script>
+
+
+   <!-- mouse event  -->
+   <script> 
+     function mousedown(){
+     document.getElementById('mypd').style.color = '#F8B627';
+     }
+     function mouseup(){
+      document.getElementById('mypd').style.color = 'red';
+      }
+     // function mouseleave(){
+     //     document.getElementById('mypd').style.color = 'red';
+     // }
+
+    </script>
+
+  <!-- keyboard event -->
+
+  <script>
+  function keypress(){
+      document.getElementById("value").innerHTML= `you are pressing ${event.key}and its code is ${event.code}`
+  } 
+  function keyup(){
+      document.getElementById("value").innerHTML =`your key is up bro `
+  }
+   </script>
+
+
+   <!--input event  -->
+   <script>
+       const selectElement = () => {
+           const person = document.getElementById("people").value
+           const icecream = document.getElementById("ice").value;
+           const result =document.getElementById("selectitem");
+           result.innerHTML = `mr ${person} slect ${icecream} flavour`
+       }
+
+   </script>
+
+   <!-- timeing event -->
+   <!-- <script> 
+     const shoname =document.getElementById('showname');
+     const btn = document.getElementById("name_button");
+      btn.addEventListener('click', () =>{ setTimeout(shoname.innerHTML ="naincy",2000)
+      });
+    </script> -->
+    <!-- 2nd way -->
+    
+    <script> 
+      const shoname =document.getElementById('showname');
+     const btn = document.getElementById("name_button");
+     const stopit =document.getElementById("stop");
+     let pause;
+
+     const shoonname = ()=>{ 
+        shoname.innerHTML= "loading......";
+        pause = setTimeout(() =>
+        {shoname.innerHTML ="kamtahan"}, 4000 )}
+ 
+     btn.addEventListener("click",shoonname);
+     stopit.addEventListener("click",() => { clearTimeout(pause)});
+    </script>
+    
+
+
+</body>
+</html> 

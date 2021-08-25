@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>document</title>
+    </head>
+    <body>
+        
+        <!-- <script src="./prompt.js"></script> -->
+        <script src="Object oriented programming.js"></script>
+
+
+           <div class="parentclass" id="parentid">
+            <div class="childclass"  id="childid"> </div>
+           </div>
+           
+           <script> 
+           const parent = document.getElementById('parentid');
+           const child = document.getElementById('childid');
+
+           const parentcall = () => {
+               alert('bro im papa');
+               console.log('bro say papa')
+           }
+           const childcall =() => {
+               alert('im child ');
+               event.stopPropagation();
+
+           }
+
+           parent.addEventListener('click', parentcall);
+           child.addEventListener("click", childcall);
+        </script>
+
+          
+
+
+
+
+        </body>
+    </html>
